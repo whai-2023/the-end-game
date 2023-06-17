@@ -48,5 +48,10 @@
     "semi": false,
     "singleQuote": true
   },
-  "browserslist": "> 2%, not dead"
+  "browserslist": "> 2%, not dead",
+  "dependencies": {
+    "@tanstack/react-query": "^4.29.14",
+    "@tanstack/react-query-devtools": "^4.29.14",
+    "react-native-styled-components": "^2.1.0"
+  }
 }
