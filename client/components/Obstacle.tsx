@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import cloudImage from '../public/cloud/1.png' // Update the image file path
+import cloudImage from '../public/stone/1.png' // Update the image file path
 import '../main.css' // Import the CSS file
 
-const Clouds: React.FC = () => {
+const Obstacle: React.FC = () => {
   useEffect(() => {
     const setInitialCloudPosition = () => {
-      const cloud = document.querySelector('.clouds') as HTMLImageElement
+      const cloud = document.querySelector('.obstacle') as HTMLImageElement
       const container = document.querySelector('.container') as HTMLDivElement
 
       if (cloud && container) {
@@ -30,9 +30,9 @@ const Clouds: React.FC = () => {
 
   return (
     <div className="container">
-      <img src={cloudImage} alt="Clouds" className="clouds" />
+      <img src={cloudImage} alt="Obstacle" className="obstacle" />
     </div>
   )
 }
 
-export default Clouds
+export default Obstacle

@@ -8,31 +8,96 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-#moving-object {
+.alternate-button:nth-child(even) {
+  background-image: url("./public/paw/2.png");
+}
+
+.alternate-button:nth-child(odd) {
+  background-image: url("./public/paw/1.png");
+}
+
+/* Additional styles for the button appearance */
+.alternate-button {
+  width: 570px;
+  height:500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 80px;
+  background-color:#faf8f1;
+  padding-left: 0;
+  padding-right: 0;
+  
+}
+
+.cat:nth-child(odd) {
+  background-image: url("./public/cat/1.png");
+}
+
+.cat{
+  width: 100px;
+  height:100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius:300px;
+}
+
+.dog:nth-child(odd) {
+  background-image: url("./public/dog/1.png");
+}
+
+.dog{
+  width: 100px;
+  height:100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius:300px;
+  margin-left: 100px;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  /* position: relative; */
+  width: 100%;
+  height: 200px; /* Adjust the height of the container */
+  overflow: hidden;
+}
+
+.clouds {
+  top: 50px;
   position: absolute;
-  top: 0;
-  left: 0;
+  width: 200px; /* Adjust the width of the clouds */
+  height: 200px; /* Adjust the height of the clouds */
+  animation-duration: 5s;
+  animation-name: slide;
+}
+
+.obstacle {
+  bottom: 320px;
+  position: absolute;
   width: 50px;
-  height: 50px;
-  background-color: red;
+  height: 50px; 
+  animation-duration: 5s;
+  animation-name: slide;
 }
 
-.startbutton {
-  background-color: aliceblue;
-  border:none;
-  border-radius:10px;
-  box-shadow:0px 0px 2px 2px rgb(0,0,0);
-  padding:15px;
-  min-height:100px; 
-  min-width: 300px;
-  font-size:200px;
-}
-
-.startbuttonposition {
-  display:flex;
-  /* center items horizontally */
-  justify-content: center;
-  /* center items vertically */
-  align-items: center;
-  margin:50px auto;
+@keyframes slide {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: 100%; /* Slide the clouds from right to left within the container */
+  }
 }

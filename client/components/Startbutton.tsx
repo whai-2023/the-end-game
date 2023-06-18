@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 
 export default function Startbutton() {
   return (
-    <div className="startbuttonposition">
+    <div className="button-position">
       <Link to={'/character'}>
-        <button className="startbutton">Start Game</button>
+        <button className="alternate-button">Start Game</button>
       </Link>
     </div>
   )
