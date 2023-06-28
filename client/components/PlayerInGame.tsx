@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
 
+const RUNNING_IMAGES = [6, 5, 4, 3, 2, 1]
+const MAX_INDEX = RUNNING_IMAGES.length - 1
+
 const PlayerInGame: React.FC = () => {
   const [isJumping, setIsJumping] = useState(false)
   const [positionY, setPositionY] = useState(0)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -14,11 +18,10 @@ const PlayerInGame: React.FC = () => {
 
     const jump = () => {
       const jumpHeight = 200
-      const jumpDuration = 500
+      const jumpDuration = 800
+      const startPositionY = positionY
 
       let begin: number | null = null
-      const startPositionY = positionY
-      const gravity = 0.002 // Adjust gravity to control jump arc
 
       function animateJump(timestamp: number) {
         if (begin === null) begin = timestamp
@@ -26,7 +29,7 @@ const PlayerInGame: React.FC = () => {
         const elapsedTime = Math.min(progress, jumpDuration)
         const percentageComplete = elapsedTime / jumpDuration
         const translateY =
-          -jumpHeight * percentageComplete * (1 - percentageComplete)
+          jumpHeight * percentageComplete * (1 - percentageComplete)
         setPositionY(startPositionY + translateY)
 
         if (progress < jumpDuration) {
@@ -47,6 +50,18 @@ const PlayerInGame: React.FC = () => {
     }
   }, [isJumping, positionY])
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((index) => (index + 1 > MAX_INDEX ? 0 : index + 1))
+    }, 100)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [isJumping])
+
+  const imageToRender = isJumping ? 5 : RUNNING_IMAGES[currentImageIndex]
+
   return (
     <div
       style={{
@@ -57,13 +72,13 @@ const PlayerInGame: React.FC = () => {
       }}
     >
       <div style={{ position: 'relative' }}>
-        {/* Render the object */}
+        {/* Render the moving cat */}
         <img
-          src="../client/public/catMoving/2.png"
-          alt="Object"
+          src={`/catMoving/${imageToRender}.png`}
+          alt="cat"
           style={{
             position: 'absolute',
-            bottom: -positionY,
+            bottom: positionY,
             left: '50%',
             transform: 'translateX(-50%)',
             width: '50px',

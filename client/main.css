@@ -8,10 +8,6 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.alternate-button:nth-child(even) {
-  background-image: url("./public/paw/2.png");
-}
-
 .alternate-button:nth-child(odd) {
   background-image: url("./public/paw/1.png");
 }
@@ -27,30 +23,26 @@ body {
   background-color:#faf8f1;
   padding-left: 0;
   padding-right: 0;
-  
+  animation:rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(10deg);}
+  50% {transform: rotate(0deg);}
+  75% {transform: rotate(-10deg);}
+  100%{transform: rotate(0deg);}
 }
 
 .cat:nth-child(odd) {
   background-image: url("./public/cat/1.png");
 }
 
-.cat{
-  width: 100px;
-  height:100px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border: none;
-  font-size: 16px;
-  padding-left: 0;
-  padding-right: 0;
-  border-radius:300px;
-}
-
 .dog:nth-child(odd) {
   background-image: url("./public/dog/1.png");
 }
 
-.dog{
+.character{
   width: 100px;
   height:100px;
   background-size: cover;
@@ -60,7 +52,10 @@ body {
   padding-left: 0;
   padding-right: 0;
   border-radius:300px;
-  margin-left: 100px;
+}
+
+.dog{
+  margin-left:100px;
 }
 
 .image-container {
@@ -84,8 +79,8 @@ body {
   animation-name: slide;
 }
 
-.obstacle {
-  bottom: 320px;
+.stone{
+  bottom: 360px;
   position: absolute;
   width: 50px;
   height: 50px; 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import cloudImage from '../public/cloud/1.png' // Update the image file path
+import cloudImage from '../../public/cloud/1.png' // Update the image file path
 import '../main.css' // Import the CSS file
 
 const Clouds: React.FC = () => {
